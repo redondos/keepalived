@@ -81,5 +81,13 @@ vrrp_instance <%= name.upcase %> {
   <%= "#{notify} \"#{instance[notify]}\"" %>
     <% end %>
   <% end %>
+
+  <% if instance['track_interface'].any? %>
+  track_interface {
+    <% instance['track_interface'].each do |i| %>
+      <%= i %>
+    <% end %>
+  }
+  <% end %>
 }
 <% end -%>
