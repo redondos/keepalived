@@ -72,6 +72,7 @@ Multiple instances can be defined. The key will be used to define the instance n
 * `:advert_int => 1`              # Set advert_int
 * `:auth_type => nil`             # Enable authentication (:pass or :ah)
 * `:auth_pass => 'secret'`        # Password used for authentication
+* `:garp_master_delay => 5        # Delay for gratuitous ARP after transition to MASTER, default 5
 * `:unicast_peer => {}`           # IP address(es) for unicast (only for 1.2.8 and greater)
 * `:notify => nil                 # Script to run on any state transition
 * `:notify_master => nil          # Script to run on transition to MASTER
@@ -134,6 +135,8 @@ override_attributes(
         :notify_master => '/path/to_master.sh'
         :notify_backup => '/path/to_backup.sh',
         :notify_fault => '/path/fault.sh vi_1'
+        :auth_pass => 'secret',
+        :garp_master_delay => 5
       }
     }
   }
